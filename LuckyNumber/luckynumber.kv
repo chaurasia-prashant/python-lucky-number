@@ -1,0 +1,135 @@
+MainWindow:
+    MainWindow1:
+
+
+<RoundedButton@Button>:
+    background_color:(0,0,0,0)
+    background_normal:""
+    back_color:(1,0,1,1)
+    border_radius:[10]
+    canvas.before:
+        Color:
+            rgba:self.back_color
+        RoundedRectangle:
+            size:self.size
+            pos:self.pos
+            radius:self.border_radius
+
+
+<CurveButton1@Button>:
+    background_color:(0,0,0,0)
+    background_normal:""
+    back_color:(1,0,1,1)
+    border_radius:[30,0,30,0]
+    canvas.before:
+        Color:
+            rgba:self.back_color
+        RoundedRectangle:
+            size:self.size
+            pos:self.pos
+            radius:self.border_radius
+<CurveButton2@Button>:
+    background_color:(0,0,0,0)
+    background_normal:""
+    back_color:(1,0,1,1)
+    border_radius:[0,30,0,30]
+    canvas.before:
+        Color:
+            rgba:self.back_color
+        RoundedRectangle:
+            size:self.size
+            pos:self.pos
+            radius:self.border_radius
+
+
+<CircleButton@Button>:
+    background_color:(0,0,0,0)
+    background_normal:""
+    back_color:(1,0,1,1)
+    radius:[90000]
+
+    canvas.before:
+        Color:
+            rgba:self.back_color
+        RoundedRectangle:
+            size:self.size
+            pos:self.pos
+            radius:self.radius
+
+<MainWindow1>:
+    name:'main'
+    canvas.before:
+        Color:
+            rgb:255,255,255
+        Rectangle:
+            pos:self.pos
+            size:self.size
+    FloatLayout:
+        orientation:"vertical"
+        canvas:
+            Color:
+                rgba:255,0,203,.4
+            RoundedRectangle:
+                size:self.size
+                pos:self.pos
+                radius:[100,0,100,0]
+
+        FloatLayout:
+            Label:
+                font_size:"20sp"
+                text:"[color=0000ff]      Want To Know\nYour Lucky Number!!!\n\nType Your Name Here [/color]"
+                pos_hint:{'x':.02,'y':.37}
+                align:"center"
+                markup:True
+
+            TextInput:
+                id:ip
+                font_size:'15sp'
+                background_color:250,235,215
+                pos_hint:{'x':.2,'y':.6}
+                radius:[20]
+                size_hint:.6,.07
+                multiline:False
+
+
+            RoundedButton:
+
+                back_color:0,.43,.85,1
+                text:"SUBMIT"
+                pos_hint:{'x':.4,'y':.53}
+                size_hint:.24,.055
+                on_release:
+                    ip.text=root.process()
+                    ip.text=''
+            Label:
+                id:lb
+                text:root.process()
+                align:"center"
+                font_size:"20sp"
+                pos_hint:{'x':0,'y':-.1}
+                markup:True
+
+
+        CurveButton1:
+            back_color:.029,.907,.621,1
+            text:"Facebook"
+            pos_hint:{'x':.1,'y':.1}
+            size_hint:.2,.17
+
+
+        CircleButton:
+            back_color:0,1,0,1
+            text:"Share"
+            pos_hint:{'x':.4,'y':.1}
+            size_hint:.2,.17
+        CurveButton2:
+            back_color:.029,.907,.621,1
+            text:"WhatshApp"
+            pos_hint:{'x':.7,'y':.1}
+            size_hint:.2,.17
+
+
+
+
+
+
